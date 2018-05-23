@@ -16,7 +16,7 @@ if [ $(git diff --name-status HEAD~1 HEAD|grep -v ^D|wc -l) -gt 0 ];then
     fi
  done
  else
- echo "No Changes were done in last commit!"
+ echo "No Changes were done in last commit!" && exit 1
 fi
  cd $TEMP_DIR
   [ `ls -1|wc -l` -ge 1 ] &&  tar -zcvf /tmp/archive-name.tar.gz .  >> /dev/null && cd - >> /dev/null
