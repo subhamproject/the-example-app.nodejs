@@ -3,7 +3,7 @@
 TEMP_DIR="$(pwd)/tmp"
 TEMP_FILE="SBI/service-manifest.txt"
 [ -d $TEMP_DIR ] || mkdir -p $TEMP_DIR
-FILES=$(git diff --name-status HEAD~1 HEAD|grep -v ^D|awk '{print $2}'|xargs -n1 basename) 2> /dev/null
+FILES=$(git diff --name-status HEAD~1 HEAD|grep -v ^D|awk '{print $2}'|xargs -n1 basename) 2>/dev/null
 [ -z "${FILES}" ] && echo "No Changes were done in last commit!" && exit 1 || continue
 echo $FILES > $TEMP_FILE
 
